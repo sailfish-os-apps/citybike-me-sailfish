@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128"
+   height="128"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="slot.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.2929688"
+     inkscape:cx="83.214186"
+     inkscape:cy="88.810139"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="36"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-924.36218)">
+    <path
+       style="fill:#ffffff;fill-opacity:0.78431374;stroke:none"
+       d="M 99 47 C 96.23 47 94 49.23 94 52 L 94 58 L 90 58 L 90 60 L 93 60 L 95.8125 60 L 101 60 C 102.662 60 104 61.338 104 63 C 104 64.662 102.662 66 101 66 L 95.8125 66 L 93 66 L 90 66 L 90 68 L 94 68 L 94 102 L 94 105.8125 L 88 105.8125 L 88 107.8125 L 124 107.8125 L 124 105.8125 L 114 105.8125 L 114 77 L 114 68 L 118 68 L 118 58 L 114 58 L 114 52 C 114 49.23 111.77 47 109 47 L 99 47 z M 4 105.8125 L 4 107.8125 L 10 107.8125 L 10 105.8125 L 4 105.8125 z M 16 105.8125 L 16 107.8125 L 22 107.8125 L 22 105.8125 L 16 105.8125 z M 28 105.8125 L 28 107.8125 L 34 107.8125 L 34 105.8125 L 28 105.8125 z M 40 105.8125 L 40 107.8125 L 46 107.8125 L 46 105.8125 L 40 105.8125 z M 52 105.8125 L 52 107.8125 L 58 107.8125 L 58 105.8125 L 52 105.8125 z M 64 105.8125 L 64 107.8125 L 70 107.8125 L 70 105.8125 L 64 105.8125 z M 76 105.8125 L 76 107.8125 L 82 107.8125 L 82 105.8125 L 76 105.8125 z "
+       transform="translate(0,924.36218)"
+       id="rect3836" />
+  </g>
+</svg>
