@@ -94,7 +94,7 @@ void MyTileLoadWorker::loadTile (QString uri) {
 
 void MyTileLoadWorker::onRequestFinished (QNetworkReply * reply) {
     //qDebug () << "MyTileLoadWorker::onRequestFinished" << reply;
-    if (reply->error () == QNetworkReply::NoError) {
+    if (reply->error () == QNetworkReply::NoError && reply->bytesAvailable ()) {
         QString uri = reply->property ("uri").toString ();
         QStringList tokens = uri.split ('/');
         QDir dir (m_cacheDir);

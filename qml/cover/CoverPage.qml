@@ -52,7 +52,7 @@ CoverBackground {
             }
 
             Repeater {
-                model: 69;
+                model: 60;
                 delegate: Item {
                     rotation: model.index * (360 / 60);
                     anchors {

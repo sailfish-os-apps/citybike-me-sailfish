@@ -14,7 +14,7 @@ Page {
         target: rootItem;
         onCenterViewOnPosRequested: {
             osm.isZoomed = true;
-            osm.centerOnCoord (lat, lon);
+            osm.centerCoords = Qt.point (lat, lon);
             osm.refreshTiles ();
         }
         onGlobalViewRequested: {
@@ -46,7 +46,10 @@ Page {
                 height: width;
                 enabled: !marker.isCurrent;
                 anchors.centerIn: parent;
-                onClicked: { currentStationItem = BikesModel.getByUid (model ['number']); }
+                onClicked: {
+                    currentStationItem = null;
+                    currentStationItem = BikesModel.getByUid (model ['number']);
+                }
             }
             Rectangle {
                 id: circle;
@@ -76,7 +79,7 @@ Page {
             from: 0.5;
             to: 1.5;
             duration: 1250;
-            running: rootItem.applicationActive;
+            running: (initialized && rootItem.applicationActive);
             loops: Animation.Infinite;
         }
         //VerticalScrollDecorator   {}

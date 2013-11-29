@@ -7,8 +7,25 @@ Rectangle {
     height: 600;
     clip: true;
     color: "#2C2C2C";
-    onWidthChanged:  { refreshTiles (); }
-    onHeightChanged: { refreshTiles (); }
+    onWidthChanged: {
+        timerCenter.restart ();
+        refreshTiles ();
+    }
+    onHeightChanged: {
+        timerCenter.restart ();
+        refreshTiles ();
+    }
+    onCenterCoordsChanged: {
+        if (centerCoords !== Qt.point (0,0)) {
+            timerCenter.restart ();
+        }
+        else {
+            timerCenter.stop ();
+        }
+    }
+    onIsZoomedChanged: {
+        timerCenter.restart ();
+    }
 
     readonly
     property int     tileSize           : 256;
@@ -17,11 +34,12 @@ Rectangle {
 
     property bool    isZoomed           : false;
 
-    property real    lonMin             : 0;
-    property real    lonMax             : 0;
-    property real    latMin             : 0;
-    property real    latMax             : 0;
+    property real    lonMin             : 0.0;
+    property real    lonMax             : 0.0;
+    property real    latMin             : 0.0;
+    property real    latMax             : 0.0;
 
+    property point   centerCoords       : Qt.point (0,0);
 
     readonly
     property alias   markerContainer    : container;
@@ -55,34 +73,26 @@ Rectangle {
         y = map.viewHeight - ((worldMapWidth / 2 * Math.log ((1 + Math.sin (lat)) / (1 - Math.sin (lat)))) - mapOffsetY);
         return Qt.point (x, y);
     }
-    function centerOnCoord (lat, lon) {
-        var center = coord2pos (lat, lon);
-        var pos    = Qt.point (Math.round (-center.x + (viewport.width / 2)),
-                               Math.round (-center.y + (viewport.height / 2)));
-        centerOnPos (clipValue (pos.x, clicker.drag.minimumX, clicker.drag.maximumX),
-                     clipValue (pos.y, clicker.drag.minimumY, clicker.drag.maximumY))
-
-    }
     function centerOnPos (xPos, yPos) {
         if (initialized) {
             var anim = Qt.createQmlObject ('import QtQuick 2.0;' +
-                                           'ParallelAnimation {' +
+                                           '    ParallelAnimation {' +
                                            '    alwaysRunToEnd: true;' +
                                            '    loops: 1;' +
                                            '    running: true;' +
                                            '    onStopped: { destroy (); }' +
-                                           '    PropertyAnimation {' +
-                                           '        target: grid;' +
-                                           '        property: "x";' +
-                                           '        to: %1;'.arg (xPos) +
-                                           '        duration: 250;' +
-                                           '    }' +
-                                           '    PropertyAnimation {' +
-                                           '        target: grid;' +
-                                           '        property: "y";' +
-                                           '        to: %1;'.arg (yPos) +
-                                           '        duration: 250;' +
-                                           '    }' +
+                                           '        PropertyAnimation {' +
+                                           '            target: grid;' +
+                                           '            property: "x";' +
+                                           '            to: %1;'.arg (xPos) +
+                                           '            duration: 250;' +
+                                           '        }' +
+                                           '        PropertyAnimation {' +
+                                           '            target: grid;' +
+                                           '            property: "y";' +
+                                           '            to: %1;'.arg (yPos) +
+                                           '            duration: 250;' +
+                                           '        }' +
                                            '}',
                                            grid,
                                            "centerOn anim");
@@ -141,6 +151,22 @@ Rectangle {
         property alias lonDelta        : preview.lonDelta;
         property alias latBottomDegree : preview.latBottomDegree;
     }
+    Timer {
+        id: timerCenter;
+        interval: 350;
+        running: false;
+        repeat: false;
+        onTriggered: {
+            if (centerCoords !== Qt.point (0,0) && isZoomed) {
+                var centerPos = coord2pos (centerCoords.x, centerCoords.y); // lat / lon
+                var pos    = Qt.point (Math.round (-centerPos.x + (viewport.width / 2)),
+                                       Math.round (-centerPos.y + (viewport.height / 2)));
+                var xPos = clipValue (pos.x, clicker.drag.minimumX, clicker.drag.maximumX);
+                var yPos = clipValue (pos.y, clicker.drag.minimumY, clicker.drag.maximumY);
+                centerOnPos (xPos, yPos);
+            }
+        }
+    }
     MouseArea {
         id: clicker;
         drag {
@@ -151,6 +177,9 @@ Rectangle {
             maximumY: 0;
         }
         anchors.fill: parent;
+        onPositionChanged: {
+            centerCoords = Qt.point (0,0);
+        }
         onDoubleClicked: {
             if (!isZoomed) {
                 var center = viewport.mapToItem (gridPreview, mouse.x, mouse.y);
@@ -220,6 +249,8 @@ Rectangle {
 
         Repeater {
             id: repeaterMarkers;
+
+            property real pulseEffect : 1.0;
         }
     }
     Grid {
