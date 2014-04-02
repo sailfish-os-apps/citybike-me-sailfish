@@ -10,5 +10,7 @@
         <file>qml/data/bike.svg</file>
         <file>qml/data/slot.png</file>
         <file>qml/data/slot.svg</file>
+        <file>harbour-citybikeme.svg</file>
+        <file>harbour-citybikeme.png</file>
     </qresource>
 </RCC>

@@ -15,7 +15,7 @@
    id="svg4384"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="icon.svg"
+   sodipodi:docname="harbour-citybikeme.svg"
    inkscape:export-filename="/home/tboutroue/harbour-citybikeme/harbour-citybikeme.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -41,7 +41,7 @@
        x2="42.597866"
        y2="89.82029"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.9555468,0,0,0.9555468,0,966.36297)" />
+       gradientTransform="matrix(0.95504719,0,0,0.95504603,0.02247641,966.38557)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -51,16 +51,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.3116168"
-     inkscape:cx="38.881252"
+     inkscape:cx="-13.359092"
      inkscape:cy="52.35288"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:showpageshadow="false"
-     inkscape:window-width="1680"
-     inkscape:window-height="985"
+     inkscape:window-width="1920"
+     inkscape:window-height="1013"
      inkscape:window-x="0"
-     inkscape:window-y="38"
+     inkscape:window-y="37"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata4389">
@@ -70,7 +70,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -80,8 +80,8 @@
      id="layer1"
      transform="translate(0,-966.36218)">
     <path
-       style="fill:url(#linearGradient4919);fill-opacity:1;stroke:#808080;stroke-width:0.9555468;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-       d="m 42.999606,966.84074 c -23.557095,0 -42.5218326,18.96474 -42.5218326,42.52186 0,23.5571 18.9647376,42.5218 42.5218326,42.5218 23.557096,0 42.521833,-18.9647 42.521833,-42.5218 0,-0.1613 0.0018,-0.317 0,-0.4778 l 0,-42.04406 -42.044059,0 c -0.160794,-0.002 -0.316544,0 -0.477774,0 z"
+       style="fill:url(#linearGradient4919);fill-opacity:1;stroke:none"
+       d="m 42.9996,966.86309 c -23.544778,0 -42.4996,18.9548 -42.4996,42.49961 0,23.5447 18.954822,42.4995 42.4996,42.4995 23.544779,0 42.4996,-18.9548 42.4996,-42.4995 0,-0.1612 0.0018,-0.3168 0,-0.4776 l 0,-42.02201 -42.022076,0 c -0.16071,-0.002 -0.316378,0 -0.477524,0 z"
        id="rect4392"
        inkscape:connector-curvature="0" />
     <g
