@@ -8,3 +8,6 @@ obj/
 RPMS/
 rpm/*.spec
 harbour-citybikeme
+moc_*.cpp
+*.o
+qrc_*.cpp

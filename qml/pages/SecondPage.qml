@@ -76,8 +76,8 @@ Page {
         NumberAnimation {
             targets: osm.markerContainer.children;
             properties: "pulseEffect";
-            from: 0.5;
-            to: 1.5;
+            from: 0.15;
+            to: 2.5;
             duration: 1250;
             running: (initialized && rootItem.applicationActive);
             loops: Animation.Infinite;

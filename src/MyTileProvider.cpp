@@ -123,7 +123,11 @@ void MyTileLoadWorker::doLoading (QString uri) {
     //qDebug () << "MyTileLoadWorker::doLoading" << uri;
     QFile file (QString ("%1/%2.png").arg (m_cacheDir).arg (uri));
     if (!file.exists ()) {
-        QNetworkReply * reply = m_nam->get (QNetworkRequest (QUrl (QString ("http://tile.openstreetmap.org/%1.png").arg (uri))));
+        QNetworkRequest req (QUrl (QString ("http://tile.openstreetmap.org/%1.png").arg (uri)));
+        req.setHeader (QNetworkRequest::UserAgentHeader,
+                       "Mozilla/5.0 (X11; Linux ARM) AppleWebKit/537.36 (KHTML, like Gecko)");
+        req.setPriority (QNetworkRequest::HighPriority);
+        QNetworkReply * reply = m_nam->get (req);
         reply->setProperty ("uri", uri);
     }
     else {
