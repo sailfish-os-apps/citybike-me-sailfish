@@ -31,7 +31,8 @@ OTHER_FILES += \
     qml/data/bike.png \
     qml/data/slot.png \
     qml/data/bike.svg \
-    qml/data/slot.svg
+    qml/data/slot.svg \
+    qml/components/ScrollDimmer.qml
 
 RESOURCES   += \
     data.qrc

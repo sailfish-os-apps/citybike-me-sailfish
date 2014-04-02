@@ -1,5 +1,6 @@
 import QtQuick 2.0;
 import Sailfish.Silica 1.0;
+import "../components";
 
 Page {
     id: page;
@@ -101,14 +102,23 @@ Page {
                 }
             }
         }
+        footer: Item {
+            height: btnBackToTop.height;
+            anchors {
+                left:  (parent ? parent.left  : undefined);
+                right: (parent ? parent.right : undefined);
+            }
+        }
         anchors {
             top: parent.top;
             left: parent.left;
             right: parent.right;
-            bottom: panelBottom.top;
+            bottom: parent.bottom;
         }
 
         PullDownMenu {
+            id: pulley;
+
             MenuItem {
                 text: qsTr ("Current contract");
                 color: Theme.highlightColor;
@@ -154,27 +164,28 @@ Page {
         }
         VerticalScrollDecorator {}
     }
-    OpacityRampEffect {
-        sourceItem: view;
-        enabled: (!view.atYEnd);
-        direction: OpacityRamp.TopToBottom;
-        offset: 0.35;
-        slope: 1.25;
-        width: view.width;
-        height: view.height;
-        anchors.fill: null;
+    ScrollDimmer { flickable: view; }
+    Rectangle {
+        visible: btnBackToTop.visible;
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: Qt.rgba (0, 0, 0, 0); }
+            GradientStop { position: 1.0; color: Qt.rgba (0, 0, 0, 1); }
+        }
+        anchors {
+            fill: btnBackToTop;
+            topMargin: (-btnBackToTop.height / 2);
+        }
     }
     Button {
-        id: panelBottom;
+        id: btnBackToTop;
         text: qsTr ("Back to top");
+        visible: (!view.atYBeginning && view.visibleArea.heightRatio < 1.0 && !pulley.active);
         anchors {
-            left: parent.left;
-            right: parent.right;
-            bottom: parent.bottom;
-            bottomMargin: (view.atYBeginning ? -height : 0);
-            margins: 0;
+            left: view.left;
+            right: view.right;
+            bottom: view.bottom;
         }
-        onClicked: { view.scrollToTop (); }
+        onClicked: { view.positionViewAtBeginning (); }
     }
 }
 

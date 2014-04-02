@@ -12,5 +12,6 @@
         <file>qml/data/slot.svg</file>
         <file>harbour-citybikeme.svg</file>
         <file>harbour-citybikeme.png</file>
+        <file>qml/components/ScrollDimmer.qml</file>
     </qresource>
 </RCC>
