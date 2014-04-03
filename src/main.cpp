@@ -1,8 +1,4 @@
 
-#ifdef QT_QML_DEBUG
-#include <QtQuick>
-#endif
-
 #include <QQuickView>
 #include <QQmlContext>
 #include <QQmlEngine>
@@ -21,8 +17,7 @@ int main (int argc, char * argv []){
     qmlRegisterUncreatableType<QAbstractItemModel>  ("harbour.citybikeme.myQtCoreImports", 5, 1, "AbstractItemModel", "");
     qmlRegisterUncreatableType<QAbstractProxyModel> ("harbour.citybikeme.myQtCoreImports", 5, 1, "AbstractProxyMode", "");
     QGuiApplication * app = SailfishApp::application (argc, argv);
-    app->setApplicationName ("CityBikeMe");
-    app->setOrganizationName ("TheBootroo");
+    app->setApplicationName ("harbour-citybikeme");
     QQuickView * view = SailfishApp::createView ();
     view->rootContext ()->setContextProperty ("BikesModel", new MyBikesProxyFilter (view));
     view->setSource (QUrl ("qrc:/qml/harbour-citybikeme.qml"));
